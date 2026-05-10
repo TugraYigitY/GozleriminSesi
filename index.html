@@ -1,11 +1,9 @@
 <!--
     Copyright (C) 2026 TugraYigitY
-    Gözlerimin Sesi 1.0
+    Gözlerimin Sesi 2.0
     Bu yazılım GNU Genel Kamu Lisansı (GPL) v3.0 ile lisanslanmıştır.
-    Ayrıntılar için projenin ana dizinindeki "license.txt" ve "Readme.txt" dosyalarına bakın.
+    Ayrıntılar için projenin ana dizinindeki "LİCENCE.txt" ve "README.txt" dosyalarına bakın.
  -->
-
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -268,9 +266,9 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;heig
 #kb-panel{padding:14px 16px;overflow-y:auto;display:flex;flex-direction:column;gap:6px;}
 .kb-row{display:flex;justify-content:center;gap:5px;}
 .key{
-  min-width:48px;height:50px;border-radius:9px;border:1px solid var(--border2);
+  min-width:56px;height:65px;border-radius:9px;border:1px solid var(--border2);
   background:var(--surface2);color:var(--text);
-  font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;
+  font-family:'Nunito',sans-serif;font-size:18px;font-weight:800;
   cursor:pointer;display:flex;align-items:center;justify-content:center;
   transition:all .12s;position:relative;overflow:hidden;
 }
@@ -293,26 +291,26 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;heig
 
 /* ─── CARDS ─── */
 #cat-bar{
-  display:flex;gap:7px;padding:10px 18px;
+  display:flex;gap:6px;padding:8px 12px;
   border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none;flex-shrink:0;
 }
 #cat-bar::-webkit-scrollbar{display:none;}
 .cat-btn{
-  padding:7px 15px;border-radius:20px;border:1px solid var(--border);
+  padding:6px 12px;border-radius:20px;border:1px solid var(--border);
   background:var(--surface2);color:var(--text-dim);
-  font-family:'Nunito',sans-serif;font-size:12px;font-weight:700;
+  font-family:'Nunito',sans-serif;font-size:11px;font-weight:700;
   cursor:pointer;white-space:nowrap;transition:all .2s;
 }
 .cat-btn.on,.cat-btn.gh{background:var(--primary-dim);border-color:var(--primary);color:var(--primary);}
 #cards-grid{
-  flex:1;overflow-y:auto;padding:14px 18px;
-  display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));
-  gap:10px;align-content:start;
+  flex:1;overflow-y:auto;padding:10px;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));
+  gap:8px;
 }
 .pcard{
   background:var(--surface2);border:1px solid var(--border2);border-radius:12px;
-  padding:14px 10px;cursor:pointer;transition:all .18s;
-  display:flex;flex-direction:column;align-items:center;gap:6px;
+  padding:10px 8px;cursor:pointer;transition:all .18s;
+  display:flex;flex-direction:column;align-items:center;gap:5px;
   text-align:center;position:relative;overflow:hidden;
 }
 .pcard::before{
@@ -327,8 +325,8 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;heig
 .pcard:hover::before,.pcard.gh::before{opacity:1;}
 .pcard.sel{animation:cardSel .3s ease;}
 @keyframes cardSel{50%{background:rgba(0,212,255,.3);transform:scale(.95);}}
-.pcard-icon{font-size:30px;}
-.pcard-text{font-size:12px;font-weight:700;color:var(--text);line-height:1.3;}
+.pcard-icon{font-size:26px;}
+.pcard-text{font-size:11px;font-weight:700;color:var(--text);line-height:1.3;}
 .pcard-freq{
   position:absolute;top:5px;right:5px;
   min-width:17px;height:17px;border-radius:9px;padding:0 4px;
@@ -409,26 +407,26 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;heig
     </div>
 
     <div id="sett">
-      <div class="sett-sep">👁️ Göz Takibi</div>
+      <div class="sett-sep" id="sep-eye">👁️ Göz Takibi</div>
       <div class="sett-g">
-        <label>Göz Kırpma Eşiği <span class="sett-v" id="sv-blink">0.22</span></label>
+        <label><span id="l-blink">Göz Kırpma Eşiği</span> <span class="sett-v" id="sv-blink">0.22</span></label>
         <div class="sett-row"><input type="range" id="sl-blink" min="0.10" max="0.35" step="0.01" value="0.22" oninput="updSett()"></div>
       </div>
       <div class="sett-g">
-        <label>Gaze Hassasiyeti <span class="sett-v" id="sv-gain">3.5</span></label>
+        <label><span id="l-gain">Gaze Hassasiyeti</span> <span class="sett-v" id="sv-gain">3.5</span></label>
         <div class="sett-row"><input type="range" id="sl-gain" min="1.5" max="7.0" step="0.1" value="3.5" oninput="updSett()"></div>
       </div>
       <div class="sett-g">
-        <label>Yumuşatma <span class="sett-v" id="sv-smooth">0.12</span></label>
+        <label><span id="l-smooth">Yumuşatma</span> <span class="sett-v" id="sv-smooth">0.12</span></label>
         <div class="sett-row"><input type="range" id="sl-smooth" min="0.04" max="0.35" step="0.01" value="0.12" oninput="updSett()"></div>
       </div>
-      <div class="sett-sep">🔊 Ses</div>
+      <div class="sett-sep" id="sep-sound">🔊 Ses</div>
       <div class="sett-g">
-        <label>TTS Hızı <span class="sett-v" id="sv-rate">1.0</span></label>
+        <label><span id="l-rate">TTS Hızı</span> <span class="sett-v" id="sv-rate">1.0</span></label>
         <div class="sett-row"><input type="range" id="sl-rate" min="0.5" max="2.0" step="0.1" value="1.0" oninput="updSett()"></div>
       </div>
       <div class="sett-g">
-        <label>TTS Tonu <span class="sett-v" id="sv-pitch">1.0</span></label>
+        <label><span id="l-pitch">TTS Tonu</span> <span class="sett-v" id="sv-pitch">1.0</span></label>
         <div class="sett-row"><input type="range" id="sl-pitch" min="0.5" max="2.0" step="0.1" value="1.0" oninput="updSett()"></div>
       </div>
     </div>
@@ -534,22 +532,30 @@ const PHRASES = {
       {i:'❌',t:'Hayır'},{i:'🆘',t:'Yardım edin lütfen'},{i:'💊',t:'İlaç lazım'},
       {i:'💧',t:'Su istiyorum'},{i:'🍽️',t:'Acıktım'},{i:'😣',t:'Ağrım var'},
       {i:'😴',t:'Uyumak istiyorum'},{i:'🚽',t:'Tuvalete gitmem lazım'},{i:'🥶',t:'Üşüyorum'},
+      {i:'😊',t:'İyiyim'},{i:'❤️',t:'Sizi seviyorum'},{i:'👏',t:'Çok güzel'},
+      {i:'🔥',t:'Harika'},{i:'💪',t:'Başaracağım'},{i:'🎉',t:'Harika oldu'},
     ],
     ihtiyac:[
       {i:'📞',t:'Aile üyemi arayın'},{i:'👨‍⚕️',t:'Doktor çağırın'},
       {i:'🏥',t:'Hastaneye götürün'},{i:'📱',t:'Telefonum nerede?'},
       {i:'👓',t:'Gözlüğüm lazım'},{i:'🔋',t:'Şarj lazım'},
       {i:'🛏️',t:'Yatmak istiyorum'},{i:'🪑',t:'Oturmak istiyorum'},
+      {i:'🚗',t:'Arabayla çıkalım'},{i:'🌡️',t:'Sıcaklık ölçün'},
+      {i:'🔊',t:'Sesi aç'},{i:'💡',t:'Işığı aç'},
     ],
     duygu:[
       {i:'😊',t:'Mutluyum'},{i:'😢',t:'Üzgünüm'},{i:'😰',t:'Korkuyorum'},
       {i:'😤',t:'Sinirleniyorum'},{i:'😌',t:'İyiyim'},{i:'🤔',t:'Bilmiyorum'},
-      {i:'❤️',t:'Sizi seviyorum'},{i:'😲',t:'Şaşırdım'},
+      {i:'❤️',t:'Sizi seviyorum'},{i:'😲',t:'Şaşırdım'},{i:'😴',t:'Uyku geliyor'},
+      {i:'😠',t:'Kızgınım'},{i:'😇',t:'İyi yapıldı'},{i:'🤗',t:'Sarılmak istiyorum'},
     ],
     gunluk:[
       {i:'🌅',t:'Günaydın'},{i:'🌙',t:'İyi geceler'},{i:'🤝',t:'Görüşürüz'},
       {i:'📺',t:'TV izlemek istiyorum'},{i:'🎵',t:'Müzik dinlemek istiyorum'},
       {i:'🌞',t:'Dışarı çıkmak istiyorum'},{i:'☕',t:'Kahve istiyorum'},
+      {i:'🚶',t:'Yürüyüş yapmak istiyorum'},{i:'🎮',t:'Oyun oynamak istiyorum'},
+      {i:'📖',t:'Kitap oku bana'},{i:'🎬',t:'Film izleyelim'},
+      {i:'🍕',t:'Pizza ister misin?'},{i:'🛁',t:'Banyo yapmak istiyorum'},
     ]
   },
   en:{
@@ -558,22 +564,30 @@ const PHRASES = {
       {i:'❌',t:'No'},{i:'🆘',t:'Please help me'},{i:'💊',t:'I need medication'},
       {i:'💧',t:'I want water'},{i:'🍽️',t:"I'm hungry"},{i:'😣',t:"I'm in pain"},
       {i:'😴',t:'I want to sleep'},{i:'🚽',t:'I need the bathroom'},{i:'🥶',t:"I'm cold"},
+      {i:'😊',t:"I'm fine"},{i:'❤️',t:'I love you'},{i:'👏',t:'That is great'},
+      {i:'🔥',t:'Awesome'},{i:'💪',t:'I can do it'},{i:'🎉',t:'That was wonderful'},
     ],
     ihtiyac:[
       {i:'📞',t:'Call my family'},{i:'👨‍⚕️',t:'Call the doctor'},
       {i:'🏥',t:'Take me to hospital'},{i:'📱',t:'Where is my phone?'},
       {i:'👓',t:'I need my glasses'},{i:'🔋',t:'Need to charge'},
       {i:'🛏️',t:'I want to lie down'},{i:'🪑',t:'I want to sit up'},
+      {i:'🚗',t:'Let us go for a drive'},{i:'🌡️',t:'Check my temperature'},
+      {i:'🔊',t:'Turn up the volume'},{i:'💡',t:'Turn on the light'},
     ],
     duygu:[
       {i:'😊',t:"I'm happy"},{i:'😢',t:"I'm sad"},{i:'😰',t:"I'm scared"},
       {i:'😤',t:"I'm angry"},{i:'😌',t:"I'm fine"},{i:'🤔',t:"I don't know"},
-      {i:'❤️',t:'I love you'},{i:'😲',t:"I'm surprised"},
+      {i:'❤️',t:'I love you'},{i:'😲',t:"I'm surprised"},{i:'😴',t:'Getting tired'},
+      {i:'😠',t:"I'm upset"},{i:'😇',t:'That is kind'},{i:'🤗',t:'I want a hug'},
     ],
     gunluk:[
       {i:'🌅',t:'Good morning'},{i:'🌙',t:'Good night'},{i:'🤝',t:'See you later'},
       {i:'📺',t:'I want to watch TV'},{i:'🎵',t:'I want to listen to music'},
       {i:'🌞',t:'I want to go outside'},{i:'☕',t:'I want coffee'},
+      {i:'🚶',t:'I want to take a walk'},{i:'🎮',t:'I want to play a game'},
+      {i:'📖',t:'Read me a book'},{i:'🎬',t:"Let us watch a movie"},
+      {i:'🍕',t:'Do you want pizza?'},{i:'🛁',t:'I want to take a bath'},
     ]
   }
 };
@@ -1000,8 +1014,29 @@ function setLang(l){
   S.lang=l;
   document.getElementById('btn-tr').classList.toggle('on',l==='tr');
   document.getElementById('btn-en').classList.toggle('on',l==='en');
+  updateSettingsLabels();
   buildKeyboard(); buildCatBar(); renderCards();
   toast(l==='tr'?'🇹🇷 Türkçe seçildi':'🇬🇧 English selected');
+}
+
+function updateSettingsLabels(){
+  if(S.lang==='tr'){
+    document.getElementById('sep-eye').textContent='👁️ Göz Takibi';
+    document.getElementById('l-blink').textContent='Göz Kırpma Eşiği';
+    document.getElementById('l-gain').textContent='Gaze Hassasiyeti';
+    document.getElementById('l-smooth').textContent='Yumuşatma';
+    document.getElementById('sep-sound').textContent='🔊 Ses';
+    document.getElementById('l-rate').textContent='TTS Hızı';
+    document.getElementById('l-pitch').textContent='TTS Tonu';
+  } else {
+    document.getElementById('sep-eye').textContent='👁️ Eye Tracking';
+    document.getElementById('l-blink').textContent='Eye Blink Threshold';
+    document.getElementById('l-gain').textContent='Gaze Sensitivity';
+    document.getElementById('l-smooth').textContent='Smoothing';
+    document.getElementById('sep-sound').textContent='🔊 Sound';
+    document.getElementById('l-rate').textContent='TTS Speed';
+    document.getElementById('l-pitch').textContent='TTS Pitch';
+  }
 }
 
 // ════════════════════════════════════════════
