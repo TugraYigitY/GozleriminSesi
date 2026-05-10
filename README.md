@@ -1,5 +1,5 @@
-# Gozlerimin-Sesi-1.0
- Proje Hakkında: Gözlerimin Sesi 1.0 engelli/özel bireylerin bir kamera yardımıyla iletişim engellerini aşmalarını hedeflemektedir. Bunu yaparken
+# Gozlerimin-Sesi-2.0
+ Proje Hakkında: Gözlerimin Sesi 2.0 engelli/özel bireylerin bir kamera yardımıyla iletişim engellerini aşmalarını hedeflemektedir. Bunu yaparken
 aynı zamanda çok dilli destek, duygu analizi ve sık kullanılan kelimeler için oluşturulmuş kartlar bölümü ile kullanıcı birey için kolaylık
 sağlanmak istenmiştir
 
